@@ -1,3 +1,4 @@
-This is a sample project for the iOS Shortcut download backend.
+My First Project
 
-Place your own project files in a new subfolder under projects/.
+This is a sample project archive for the iOS Shortcut download backend.
+It contains two files so the downloaded ZIP is not empty.

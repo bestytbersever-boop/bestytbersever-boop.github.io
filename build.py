@@ -18,7 +18,17 @@ def list_projects():
 
 
 def ensure_dirs():
+    os.makedirs(PUBLIC_DIR, exist_ok=True)
     os.makedirs(DOWNLOADS_DIR, exist_ok=True)
+
+
+def clean_downloads():
+    if not os.path.isdir(DOWNLOADS_DIR):
+        return
+    for filename in os.listdir(DOWNLOADS_DIR):
+        file_path = os.path.join(DOWNLOADS_DIR, filename)
+        if os.path.isfile(file_path) and filename.lower().endswith(".zip"):
+            os.remove(file_path)
 
 
 def build_zip(project_name):
@@ -94,13 +104,23 @@ def build_index(projects):
 
 
 def build_projects_json(projects):
+    output = {
+        "projects": [
+            {
+                "name": project,
+                "download": f"downloads/{project}.zip",
+            }
+            for project in projects
+        ]
+    }
     with open(os.path.join(PUBLIC_DIR, "projects.json"), "w", encoding="utf-8") as out:
-        json.dump({"projects": projects}, out, indent=2)
+        json.dump(output, out, indent=2)
 
 
 def main():
     projects = list_projects()
     ensure_dirs()
+    clean_downloads()
     for project in projects:
         build_zip(project)
     build_index(projects)

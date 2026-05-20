@@ -1,3 +1,3 @@
 Welcome to the sample project!
 
-When the Shortcut downloads this project, it will arrive as a ZIP archive named my-first-project.zip.
+This file proves the ZIP archive includes real content.
