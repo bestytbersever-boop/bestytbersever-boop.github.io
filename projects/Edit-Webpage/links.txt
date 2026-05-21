@@ -1,0 +1,7 @@
+These shortcuts allow you to edit web pages. After you've installed: go into you desiered website on safari,
+then click the share button, then view more, and then click edit webpage. To stop editing, simply click "Stop editing Webpage".
+
+To edit:
+https://www.icloud.com/shortcuts/ac747d36e10d4903aeac1859f7de0937
+To stop editing:
+https://www.icloud.com/shortcuts/992bc09b489e45df8fcee63460b2f11b
