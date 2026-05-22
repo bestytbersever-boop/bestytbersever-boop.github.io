@@ -1,3 +1,6 @@
+First paste this link into safari for the tutorial:
+https://drive.google.com/file/d/1wsJKvafK4C1DeOEAd_noNXKovAgpcqIm/view?usp=drivesdk
+
 Code 1:
 
 sudo apt-get update
