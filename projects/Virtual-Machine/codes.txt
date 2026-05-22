@@ -1,0 +1,37 @@
+Code 1:
+
+sudo apt-get update
+sudo apt-get install -y xfce4 xfce4-goodies tightvncserver dbus-x11 websockify novnc
+sudo install -d -m 0755 /etc/apt/keyrings
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | sudo tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
+echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
+echo '
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+' | sudo tee /etc/apt/preferences.d/mozilla
+sudo apt-get update && sudo apt-get install -y firefox
+
+Code 2:
+
+mkdir -p ~/.vnc
+cat <<EOF > ~/.vnc/xstartup
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+eval \$(dbus-launch --sh-syntax --exit-with-session)
+
+export XDG_CURRENT_DESKTOP=XFCE
+export LIBGL_ALWAYS_SOFTWARE=1
+export DISPLAY=:1
+
+startxfce4 &
+EOF
+
+chmod +x ~/.vnc/xstartup
+
+Code 3:
+
+vncserver :1 -geometry 1280x800 -depth 24
+websockify --web /usr/share/novnc/ 6080 localhost:5901 &
+
