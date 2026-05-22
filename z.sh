@@ -8,7 +8,7 @@ DOWNLOADS="$ROOT/public/downloads"
 mkdir -p "$DOWNLOADS"
 
 if [[ ! -d "$PROJECTS" ]]; then
-  echo "ERROR: projects folder not found at $PROJECTS" >&2
+  echo "ERROR: projects folder was not found at $PROJECTS" >&2
   exit 1
 fi
 
