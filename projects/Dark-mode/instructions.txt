@@ -1,4 +1,0 @@
-To use this, go to safari, go to any random page and click share then "Save Bookmark" after that, click the side bar to open bookmarks,
-hold down on the one you saved, click edit and paste this in where the link is:
-
-javascript:(function(){if(!document.getElementById('darkModeStyle')){var css=document.createElement('style');css.id='darkModeStyle';css.type='text/css';css.innerHTML='html, body { background-color: #121212 !important; color: #e0e0e0 !important; } a { color: #bb86fc !important; } img, video, iframe { opacity: 0.9 !important; }';document.head.appendChild(css);alert('Dark mode enabled');}else{document.getElementById('darkModeStyle').remove();alert('Dark mode disabled');}})();
